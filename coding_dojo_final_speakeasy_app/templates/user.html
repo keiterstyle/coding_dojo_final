@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script defer type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <link rel="stylesheet" href="../static/css/style.css"> <!-- for testing purposes while I dont have server running -->
+
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="container-fluid">
+
+        <!-- Logo, Welcome Username, Logout -->
+        <div class="topbar d-flex flex-lg-row">
+
+            <!-- Logo -->
+            <div class="logobox col-md-3 d-inline-flex align-items-center">
+                <h1 class="text-center">Speakeasy</h1>
+            </div>
+
+            <!-- Welcome User Bar -->
+            <div class="welcomebox col-md-7 d-flex align-items-center">
+                <h2 class="display-5">Welcome, {{ thisUser.first_name }}</h2>
+            </div>
+
+            <!-- Logout Link -->
+            <div class="logoutbox col-md-1 d-inline-flex align-items-center">
+                <h4 class="display-5 logoutLink"><a href="/logout">Logout</a></h4>
+            </div>
+        </div>
+        {% if userOwner %}
+        <h1 class="text-center mt-2">Edit Your Profile</h1>
+        {% endif %}
+        <div class="container">
+            <div class="row">
+              <!-- Bootstrap left nav link group - added Stream, Data, and two blank link options if we want to expand -->
+              <div class="col-lg-6">
+                <h4 class="text-black text-center">Stream Navigation</h4>
+                <div class="list-group">
+                    <a href="/stream/{{ userOwner.id }}" class="list-group-item list-group-item-action">Stream</a>
+                    {% if thisUser.id == userOwner.id %}
+                    <a href="/stats" class="list-group-item list-group-item-action">Stats</a>
+                    <a href="/create" class="list-group-item list-group-item-action">Create</a>
+                    {% endif %}
+                    {% if thisUser.admin == True %}
+                    <a href="/admin" class="list-group-item list-group-item-action">Admin</a>
+                    {% endif %}
+                </div>
+              </div>
+              <!-- User image column -->
+              <div class="col-lg-6">
+                <img class="profilePic" src="../static/img/{{ userOwner.user_image }}" alt="My Pic">
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+</body>
+</html>

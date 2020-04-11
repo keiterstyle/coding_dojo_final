@@ -1,0 +1,91 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+
+.wrapper {
+  background-color: rgb(34, 31, 31);
+}
+.profilePic {
+  height: 50%;
+  max-height: 50%;
+}
+
+.topbar {
+    background-color: gold;
+    color: black;
+    height: 4rem;
+}
+
+.logobox {
+    background-color: purple;
+    vertical-align: top;
+    color: white;
+}
+
+.welcomebox {
+    color: black;
+    vertical-align: top;
+}
+
+
+/* Chatroom styling: */
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    max-height: 7rem;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+  }
+
+  .members-count,
+  .members-list,
+  .messages {
+    border: 1px solid #e4e4e4;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .messages {
+    flex-shrink: 1;
+    overflow: auto;
+  }
+
+  .message {
+    padding: 5px 0;
+  }
+  .message .member {
+    display: inline-block;
+  }
+
+  .member {
+    padding-right: 10px;
+    position: relative;
+  }
+
+  .message-form {
+    display: flex;
+    flex-shrink: 0;
+  }
+  .message-form__input {
+    flex-grow: 1;
+    border: 1px solid #dfdfdf;
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+  .message-form__button {
+    margin: 10px;
+  }
+/* end Chatroom styling. */
+
